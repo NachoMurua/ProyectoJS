@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/main.js" defer></script>
+    <script src="../js/carrito.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="titulo"> 
+                <a href="../index.html"><h1> Drink <span>¡A!</span> Lot </h1></a>
+            </div>
+            <div class="compras"> 
+                    <a class="boton-carrito" href="../index.html"><img class="carrito" src="../img/carrito.png" alt="carrito"></a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="vacio">
+            <p id="carritoVacioId" class="carritoVacio">Por el momento tu carrito esta vacio, Selecciona algun producto<a href="../index.html"> ¡ACA! </a> para continuar comprando!</p>
+            <div id="productosCarritoId" class="productosCarrito desaparecer" >
+
+                <div class="productoCarrito">
+                    <img src="../img/cuantro.png" alt="">
+                    <div class="nombreProducto">
+                        <small>Item</small>
+                        <h4>Licor Cointreau</h4>
+                    </div>
+                    <div class="cantidadProducto">
+                        <small>Cantidad</small>
+                        <p>1</p>
+                    </div>
+                    <div class="precioProducto">
+                        <small>Precio</small>
+                        <p id="total">$21.000</p>
+                    </div>
+                    <div class="subtotalProducto">
+                        <small>subtotal</small>
+                        <p id="total">$21.000</p>
+                    </div>
+                    <button class="btnEliminarProducto" id="btnEliminarProductoId">X</button>
+                </div>
+
+                <div class="productoCarrito">
+                    <img src="../img/absolut.png" alt="">
+                    <div class="nombreProducto">
+                        <small>Item</small>
+                        <h4>Vodka absolut</h4>
+                    </div>
+                    <div class="cantidadProducto">
+                        <small>Cantidad</small>
+                        <p>1</p>
+                    </div>
+                    <div class="precioProducto">
+                        <small>Precio</small>
+                        <p id="total">$5.000</p>
+                    </div>
+                    <div class="subtotalProducto">
+                        <small>subtotal</small>
+                        <p id="total">$5.000</p>
+                    </div>
+                    <button class="btnEliminarProducto" id="btnEliminarProductoId">X</button>
+                </div>
+
+                <div class="productoCarrito">
+                    <img src="../img/bombay.png" alt="">
+                    <div class="nombreProducto">
+                        <small>Item</small>
+                        <h4>Gin bombay</h4>
+                    </div>
+                    <div class="cantidadProducto">
+                        <small>Cantidad</small>
+                        <p>1</p>
+                    </div>
+                    <div class="precioProducto">
+                        <small>Precio</small>
+                        <p id="total">$7.500</p>
+                    </div>
+                    <div class="subtotalProducto">
+                        <small>subtotal</small>
+                        <p id="total">$7.500</p>
+                    </div>
+                    <button class="btnEliminarProducto" id="btnEliminarProductoId">X</button>
+                </div>
+
+                <div class="productoCarrito">
+                    <img src="../img/heineken.png" alt="">
+                    <div class="nombreProducto">
+                        <small>Item</small>
+                        <h4>Cerveza Heineken</h4>
+                    </div>
+                    <div class="cantidadProducto">
+                        <small>Cantidad</small>
+                        <p>1</p>
+                    </div>
+                    <div class="precioProducto">
+                        <small>Precio</small>
+                        <p id="total">$2500</p>
+                    </div>
+                    <div class="subtotalProducto">
+                        <small>subtotal</small>
+                        <p id="total">$2500</p>
+                    </div>
+                    <button class="btnEliminarProducto" id="btnEliminarProductoId">X</button>
+                </div>
+
+                <div id="carritoAccionesId" class="carritoAcciones desaparecer">
+                    <div class="accionesIzq">
+                        <button class="vaciarCarrito">Vaciar carrito</button>
+                    </div>
+                    <div class="accionesDer">
+                        <div class="totalCompra">
+                            <p>Total</p>
+                            <p id="total">$0</p>
+                        </div>
+                        <button class="terminarCompra">Terminar compra</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>

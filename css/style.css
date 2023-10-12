@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@1,9..40,300&family=Poppins:wght@200&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'DM Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    background: #143601;
+    background-image: url(/img/fondoverde.png);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 2px solid black;
+}
+
+div h1 {
+    font-size: 25px;
+    color: #fff;
+}
+
+.compras a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.carrito {
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+}
+
+.numeroProd {
+    background-color: #0c2200;
+    padding: 2px;
+    border-radius: 50px;
+}
+
+h1 span {
+    color: #a0f000;
+}
+
+body{
+    background: #0c2200;
+}
+
+.divcontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tarjeta {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 30px;
+    margin: 30px;
+    background-image: url(/img/fondoverde.png);
+    background-repeat: no-repeat;
+}
+
+.tarjeta p{
+    font-size: 1rem;
+    text-align: center;
+    margin: 8px;
+    color: #fff;
+    font-weight: 800;
+}
+
+.producto {
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+}
+
+.producto img {
+    width: 190px;
+    height: 190px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.btn {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: black;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn {
+    text-decoration: none;
+    color: #fff;
+}
+
+.btn:hover {
+    background-color: #81c003;
+    color: black;
+}
+
+.carritoVacio {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 400;
+    text-align: center;
+    padding: 50px;
+}
+
+.carritoVacio a{
+    text-decoration: none;
+    color: #81c003;
+}
+
+.carritoVacio a:hover{
+    color:#aaff00;
+}
+
+.productosCarrito {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.productoCarrito{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    background-color: #143601;
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid grey;
+}
+
+.productoCarrito img {
+    width: 130px;
+    height: 130px;
+    margin: 5px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.productoCarrito p{
+    font-weight: 700;
+}
+
+.btnEliminarProducto {
+    margin-right: 25px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: black;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+
+.btnEliminarProducto:hover{
+    background-color: rgb(180, 0, 0);
+}
+
+.carritoAcciones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.vaciarCarrito, .terminarCompra{
+    border: 0;
+    border-radius: 10px;
+    background-color: grey;
+    padding: 20px;
+    margin: 50px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.totalCompra {
+    text-align: center;
+}
+
+.desaparecer {
+    display: none;
+}
+
+.titulo a{
+    text-decoration: none;
+}

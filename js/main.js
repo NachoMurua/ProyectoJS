@@ -1,100 +1,105 @@
-/* VARIABLES */
-
-const bebida1 = "Vino"
-const bebida2 = "Cerveza"
-const bebida3 = "Gancia"
-const bebida4 = "Vodka"
-const precioVodka = 12000
-const precioGancia = 1500
-const precioCerveza = 350
-const precioVino = 1900
-const carrito = [];
-let precio;
-let respuesta;
-let edad;
-let cantidad;
-let subtotal=0;
-let bebida;
-
-edad = prompt("¡Bienvenido a DrinkALot! Ingrese su edad:")
-
-function ingresoTienda(){
-    if (edad >= 18){
-        function mostrarCatalogo() {
-            console.log('--- Nuestras bebidas ---');
-            catalogo.forEach(bebida => {
-                console.log(`Producto: ${bebida.producto} \nBebida: ${bebida.bebida} \nNombre: ${bebida.marca} \nPrecio: $${bebida.precio} \nGraduacion alcoholica: ${bebida.graduacion}`);
-        });
-            console.log('------------------------------');
-        }
-        // Funcion bebidas
-        function agregarAlCarrito() {
-            const producto = parseInt(prompt('Ingrese el numero de producto que desea agregar al carrito'));
-            const cantidad = parseInt(prompt('Ingrese la cantidad de unidades que desea comprar'));
-            const bebidaSeleccionada = catalogo.find(bebida => bebida.producto === producto);
-        
-        if (bebidaSeleccionada && !isNaN(cantidad) && cantidad > 0) {
-            const subtotal = bebidaSeleccionada.precio * cantidad;
-            carrito.push({ producto: bebidaSeleccionada, cantidad, subtotal });
-            console.log(`"${bebidaSeleccionada.bebida}" (${cantidad} Unidad/es) se añadio a su orden`);
-        } else {
-            console.log('Error al agregar producto al carrito. Vuelva a intentarlo');
-        }
-        }
-        
-        // Contenido del carrito
-        function mostrarCarrito() {
-        console.log('--- Subtotal ---');
-        let total = 0;
-        
-        carrito.forEach(item => {
-            console.log(`${item.producto.bebida} (${item.cantidad} unidades) - Subtotal: $${item.subtotal}`);
-            total += item.subtotal;
-        });
-        
-        console.log('------------------------');
-        console.log(`Total: $${total}`);
-        }
-        
-        // Función filter
-        function filtrarPorPrecio() {
-            const precioLimite = parseFloat(prompt('Ingrese el precio máximo para filtrar:'));
-            if (!isNaN(precioLimite)) {
-            const productosFiltrados = carrito.filter(item => item.precio <= precioLimite);
-        
-            if (productosFiltrados.length > 0) {
-            console.log(`Productos por debajo de $${precioLimite}:`);
-            productosFiltrados.forEach(item => {
-                console.log(`${item.producto.bebida} (${item.cantidad} unidades) - Subtotal: $${item.subtotal}`);
-            });
-            } else {
-            console.log('No hay productos que cumplan con el filtro');
-            }
-        } else {
-            console.log('Precio inválido.');
-        }
-        }
-        // Interaccion del usuario
-        while (true) {
-            const opcion = parseInt(prompt('Elija una opción: \n1. Catalogo \n2. Agregar productos \n3. Mostrar carrito\n4. Filtrar por precios\n5. Salir de la tienda'));
-            if (opcion === 1) {
-            mostrarCatalogo();
-            } else if (opcion === 2) {
-            agregarAlCarrito();
-            } else if (opcion === 3) {
-            mostrarCarrito();
-            } else if (opcion === 4) {
-            filtrarPorPrecio();
-            } else if (opcion === 5) {
-            console.log('¡Gracias por visitar DrinkALot!');
-            break;
-            } else {
-            alert('Opción no válida. Volver a intentarlo');
-            }
-        }
-    } else {
-        alert (`No podes pasar, volve en ${18-edad} años`)
+const productos = [
+    {
+        item: "Cointreau",
+        nombre: "licor Cointreau",
+        imagen: "../img/cuantro.png",
+        precio: 21000,
+        cantidad: 1,
+    },
+    {
+        item: "Absolut",
+        nombre: "vodka Absolut",
+        imagen: "../img/absolut.png",
+        precio: 5000,
+        cantidad: 1,
+    },
+    {
+        item: "Bombay",
+        nombre: "Gin Bombay",
+        imagen: "../img/bombay.png",
+        precio: 7500,
+        cantidad: 1,
+    },
+    {
+        item: "Heineken",
+        nombre: "Cerveza Heineken",
+        imagen: "../img/heineken.png",
+        precio: 2500,
+        cantidad: 1
     }
+];
+
+
+
+let productosCarrito = [];
+
+const contenedorProductos = document.querySelector('#listaProductos');
+
+let botonesAgregar = document.querySelectorAll('.btn')
+
+const numeroProducto = document.querySelector('#numProd')
+
+function cargarProductos (productosElegidos){
+
+
+    productosElegidos.forEach (producto => {
+
+        const div = document.createElement("div");
+        div.classList.add("producto")
+        div.innerHTML = `
+        <div class="tarjeta">
+            <img src="${producto.imagen}" alt="">
+            <p>${producto.nombre}</p>
+            <p>$${producto.precio}</p>
+            <button class="btn" id="${producto.item}">Agregar al carrito</button>
+        </div>
+        `;
+        contenedorProductos.append(div);
+    });
+
+    actualizarBotonesAgregar ();
 }
 
-ingresoTienda();
+cargarProductos(productos);
+
+function actualizarBotonesAgregar (){
+    botonesAgregar = document.querySelectorAll('.btn');
+
+    botonesAgregar.forEach(boton =>{
+        boton.addEventListener('click', agregarCarrito);
+    });
+}
+
+let carritoProductos;
+
+let productosCarritoLS = localStorage.getItem("productosDelCarrito")
+
+if (productosCarritoLS){
+    carritoProductos = JSON.parse(productosCarritoLS);
+    actualizarNumero ();
+} else {
+    carritoProductos = [];
+}
+
+
+function agregarCarrito (evt){
+
+    const itemBoton = evt.currentTarget.id;
+    const productoAgregado = productos.find(producto => producto.item === itemBoton);
+
+    if (productosCarrito.some(producto => producto.item === itemBoton)){
+        const index = productosCarrito.findIndex(producto => producto.item === itemBoton);
+        productosCarrito[index].cantidad++;
+    } else {
+        productoAgregado.cantidad = 1;
+        productosCarrito.push(productoAgregado);
+    }
+    actualizarNumero ();
+
+    localStorage.setItem('productosDelCarrito', JSON.stringify(productosCarrito))
+}
+
+function actualizarNumero(){
+    let nuevoNumero = productosCarrito.reduce((acu, producto) => acu + producto.cantidad, 0);
+    numeroProducto.innerText = nuevoNumero; 
+} 
