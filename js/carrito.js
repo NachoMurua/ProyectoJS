@@ -56,6 +56,7 @@ function cargarProductosCarrito(){
 
 cargarProductosCarrito();
 
+
 function actualizarBotonesEliminar (){
     botonesEliminar = document.querySelectorAll('#btnEliminarProductoId');
 
@@ -64,14 +65,15 @@ function actualizarBotonesEliminar (){
     });
 }
 
-function eliminarDelCarrito (evt){
-    const itemBoton = evt.target.id;
+function eliminarDelCarrito (e){
+    const itemBoton = e.currentTarget.id;
     const index = productosCarrito.findIndex(producto => producto.item === itemBoton)
     productosCarrito.splice(index, 1);
     cargarProductosCarrito();
 
     localStorage.setItem("productosDelCarrito", JSON.stringify(productosCarrito));
 }
+
 
 botonVaciar.addEventListener("click", vaciarCarrito);
 function vaciarCarrito (){
@@ -91,24 +93,6 @@ function comprarCarrito() {
     carritoProductos.classList.remove("desaparecer");
     carritoAccion.classList.remove("desaparecer");
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -208,4 +192,50 @@ function actualizarNumerito() {
     numerito.innerText = nuevoNumerito;
 }
 
-*/
+
+
+/* NUEVO INTENTO DE CARRITO */
+
+/* const productosCarrito = JSON.parse(localStorage.getItem("productosCarrito"))
+
+const carritoVacio = document.querySelector('#carritoVacioId')
+const carritoDeProductos = document.querySelector('#productosCarritoId')
+const carritoAccion = document.querySelector('#carritoAccionesId')
+let botonesEliminar = document.querySelectorAll('#btnEliminarProductoId')
+const contenedorTotal = document.querySelector("#total");
+
+if (productosCarrito){
+
+    carritoVacio.classList.add("desaparecer");
+    carritoDeProductos.classList.remove("desaparecer");
+    carritoAccion.classList.remove("desaparecer");
+    
+    productosCarrito.forEach(producto => {
+
+        const div = document.createElement("div");
+        div.classList.add("carritoProducto");
+        div.innerHTML = `
+        <img src="${producto.imagen}" alt="${producto.item}">
+        <div class="nombreProducto">
+            <small>Item</small>
+            <h4>${producto.nombre}</h4>
+        </div>
+        <div class="cantidadProducto">
+            <small>Cantidad</small>
+            <p>${producto.cantidad}</p>
+        </div>
+        <div class="precioProducto">
+            <small>Precio</small>
+            <p>$${producto.precio}</p>
+        </div>
+        <div class="subtotalProducto">
+            <small>subtotal</small>
+            <p>$${producto.precio * producto.cantidad}</p>
+        </div>
+            <button class="btnEliminarProducto" id="${producto.item}" >X</button>
+        `
+
+    })
+} else {
+
+} */

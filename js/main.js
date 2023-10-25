@@ -29,8 +29,6 @@ const productos = [
     }
 ];
 
-
-
 let productosCarrito = [];
 
 const contenedorProductos = document.querySelector('#listaProductos');

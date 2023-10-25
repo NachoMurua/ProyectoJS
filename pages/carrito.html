@@ -42,7 +42,7 @@
                         <small>subtotal</small>
                         <p id="total">$21.000</p>
                     </div>
-                    <button class="btnEliminarProducto" id="btnEliminarProductoId">X</button>
+                    <button id="btnEliminarProductoId" class="btnEliminarProducto" >X</button>
                 </div>
 
                 <div class="productoCarrito">
@@ -107,19 +107,28 @@
                     </div>
                     <button class="btnEliminarProducto" id="btnEliminarProductoId">X</button>
                 </div>
+            </div>
 
-                <div id="carritoAccionesId" class="carritoAcciones desaparecer">
-                    <div class="accionesIzq">
-                        <button class="vaciarCarrito">Vaciar carrito</button>
+            <div id="carritoAccionesId" class="carritoAcciones desaparecer">
+                <div class="accionesIzq">
+                    <button id="#" class="vaciarCarrito">Vaciar carrito</button>
+                </div>
+                <div class="accionesDer">
+                    <div class="totalCompra">
+                        <p>Total </p> 
+                        <p id="total">$0</p>
+                        <style>
+                            .totalCompra {
+                                color: white;
+                                display: inline-flex;
+                            }
+                        </style>
                     </div>
-                    <div class="accionesDer">
-                        <div class="totalCompra">
-                            <p>Total</p>
-                            <p id="total">$0</p>
-                        </div>
-                        <button class="terminarCompra">Terminar compra</button>
-                    </div>
+                    <button id="#" class="terminarCompra">Terminar compra</button>
                 </div>
             </div>
+
         </section>
     </main>
+</body>
+</html>
