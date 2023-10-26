@@ -2,28 +2,28 @@ const productos = [
     {
         item: "Cointreau",
         nombre: "licor Cointreau",
-        imagen: "../img/cuantro.png",
+        imagen: "/img/cuantro.png",
         precio: 21000,
         cantidad: 1,
     },
     {
         item: "Absolut",
         nombre: "vodka Absolut",
-        imagen: "../img/absolut.png",
+        imagen: "/img/absolut.png",
         precio: 5000,
         cantidad: 1,
     },
     {
         item: "Bombay",
         nombre: "Gin Bombay",
-        imagen: "../img/bombay.png",
+        imagen: "/img/bombay.png",
         precio: 7500,
         cantidad: 1,
     },
     {
         item: "Heineken",
         nombre: "Cerveza Heineken",
-        imagen: "../img/heineken.png",
+        imagen: "/img/heineken.png",
         precio: 2500,
         cantidad: 1
     }
@@ -45,7 +45,7 @@ function cargarProductos (productosElegidos){
         div.classList.add("producto")
         div.innerHTML = `
         <div class="tarjeta">
-            <img src="${producto.imagen}" alt="">
+            <img src="${producto.imagen}" alt="${producto.item}">
             <p>${producto.nombre}</p>
             <p>$${producto.precio}</p>
             <button class="btn" id="${producto.item}">Agregar al carrito</button>
