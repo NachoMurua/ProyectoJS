@@ -2,28 +2,28 @@ const productos = [
     {
         item: "Cointreau",
         nombre: "licor Cointreau",
-        imagen: "/img/cuantro.png",
+        imagen: "../img/cuantro.png",
         precio: 21000,
-        cantidad: 1,
+        cantidad: 1
     },
     {
         item: "Absolut",
         nombre: "vodka Absolut",
-        imagen: "/img/absolut.png",
+        imagen: "../img/absolut.png",
         precio: 5000,
-        cantidad: 1,
+        cantidad: 1
     },
     {
         item: "Bombay",
         nombre: "Gin Bombay",
-        imagen: "/img/bombay.png",
+        imagen: "../img/bombay.png",
         precio: 7500,
-        cantidad: 1,
+        cantidad: 1
     },
     {
         item: "Heineken",
         nombre: "Cerveza Heineken",
-        imagen: "/img/heineken.png",
+        imagen: "../img/heineken.png",
         precio: 2500,
         cantidad: 1
     }
@@ -33,16 +33,16 @@ let productosCarrito = [];
 
 const contenedorProductos = document.querySelector('#listaProductos');
 
-let botonesAgregar = document.querySelectorAll('.btn')
+let botonesAgregar = document.querySelectorAll('.btn');
 
-const numeroProducto = document.querySelector('.numeroProd')
+const numeroProducto = document.querySelector('.numeroProd');
 
 function cargarProductos (productosElegidos){
 
     productosElegidos.forEach (producto => {
 
         const div = document.createElement("div");
-        div.classList.add("producto")
+        div.classList.add("producto");
         div.innerHTML = `
         <div class="tarjeta">
             <img src="${producto.imagen}" alt="${producto.item}">
@@ -53,7 +53,6 @@ function cargarProductos (productosElegidos){
         `;
         contenedorProductos.append(div);
     });
-
     actualizarBotonesAgregar ();
 }
 
@@ -61,7 +60,6 @@ cargarProductos(productos);
 
 function actualizarBotonesAgregar (){
     botonesAgregar = document.querySelectorAll('.btn');
-
     botonesAgregar.forEach(boton =>{
         boton.addEventListener('click', agregarCarrito);
     });
@@ -69,8 +67,7 @@ function actualizarBotonesAgregar (){
 
 let carritoProductos;
 
-
-let productosCarritoLS = localStorage.getItem("productosDelCarrito")
+let productosCarritoLS = localStorage.getItem("productosDelCarrito");
 
 if (productosCarritoLS){
     productosCarrito  = JSON.parse(productosCarritoLS);
@@ -78,7 +75,6 @@ if (productosCarritoLS){
 } else {
     productosCarrito  = [];
 }
-
 
 function agregarCarrito (evt){
 
@@ -94,7 +90,7 @@ function agregarCarrito (evt){
     }
     actualizarNumerito ();
 
-    localStorage.setItem('productosDelCarrito', JSON.stringify(productosCarrito))
+    localStorage.setItem('productosDelCarrito', JSON.stringify(productosCarrito));
 }
 
 function actualizarNumerito (){

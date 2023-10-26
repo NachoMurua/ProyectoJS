@@ -1,11 +1,11 @@
-let productosDelCarrito = localStorage.getItem("productosDelCarrito")
+let productosDelCarrito = localStorage.getItem("productosDelCarrito");
 
-productosCarrito = JSON.parse(localStorage.getItem("productosDelCarrito"))
+productosCarrito = JSON.parse(localStorage.getItem("productosDelCarrito"));
 
-const carritoVacio = document.querySelector('#carritoVacioId')
-const carritoDeProductos = document.querySelector('#productosCarritoId')
-const carritoAccion = document.querySelector('#carritoAccionesId')
-let botonesEliminar = document.querySelectorAll('#btnEliminarProductoId')
+const carritoVacio = document.querySelector('#carritoVacioId');
+const carritoDeProductos = document.querySelector('#productosCarritoId');
+const carritoAccion = document.querySelector('#carritoAccionesId');
+let botonesEliminar = document.querySelectorAll('#btnEliminarProductoId');
 const botonVaciar = document.querySelector("#vaciarCarritoId");
 const contenedorTotal = document.querySelector("#total");
 
@@ -21,7 +21,7 @@ function cargarProductosCarrito(){
         productosCarrito.forEach(producto => {
 
             const div = document.createElement("div");
-            div.classList.add("productoCarrito")
+            div.classList.add("productoCarrito");
             div.innerHTML = `
                 <img src="${producto.imagen}" alt="${producto.item}">
                 <div class="nombreProducto">
@@ -41,7 +41,7 @@ function cargarProductosCarrito(){
                     <p>$${producto.precio * producto.cantidad}</p>
                 </div>
                     <button class="btnEliminarProducto" id="${producto.item}">X</button>
-            `
+            `;
             carritoDeProductos.append(div);
         })
 
@@ -67,7 +67,7 @@ function actualizarBotonesEliminar (){
 
 function eliminarDelCarrito (e){
     const itemBoton = e.currentTarget.item;
-    const index = productosCarrito.findIndex(producto => producto.item === itemBoton)
+    const index = productosCarrito.findIndex(producto => producto.item === itemBoton);
 
     productosCarrito.splice(index, 1);
     cargarProductosCarrito();
