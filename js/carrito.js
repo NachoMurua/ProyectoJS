@@ -110,6 +110,6 @@ function actualizarTotal() {
 botonTerminarCompra.addEventListener("click", terminarCompra);
 function terminarCompra (){
 
-    Swal.fire('¡Gracias por comprar!, su total es ')
+    Swal.fire('¡Gracias por su compra!')
 
 }
