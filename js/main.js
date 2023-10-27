@@ -4,7 +4,7 @@ fetch("./js/productos.json")
     .then (Response => Response.json())
     .then (datos => {
         productos = datos;
-        cargarProductos(productos);
+        cargarProductos(productos)
     })
 
 let productosCarrito = [];
@@ -16,8 +16,10 @@ let botonesAgregar = document.querySelectorAll('.btn');
 const numeroProducto = document.querySelector('.numeroProd');
 
 function cargarProductos (productosElegidos){
+    
+    contenedorProductos.innerHTML = "";
 
-    productosElegidos.forEach (producto => {
+    productosElegidos.forEach(producto => {
 
         const div = document.createElement("div");
         div.classList.add("producto");
@@ -33,8 +35,6 @@ function cargarProductos (productosElegidos){
     });
     actualizarBotonesAgregar ();
 }
-
-cargarProductos(productos);
 
 function actualizarBotonesAgregar (){
     botonesAgregar = document.querySelectorAll('.btn');
