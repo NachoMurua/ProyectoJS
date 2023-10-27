@@ -1,12 +1,5 @@
 let productos = [];
 
-fetch("./js/productos.json")
-    .then (Response => Response.json())
-    .then (datos => {
-        productos = datos;
-        cargarProductos(productos)
-    })
-
 function obtenerProductos() {
     return new Promise((resolve, reject) => {
         fetch("./js/productos.json")
