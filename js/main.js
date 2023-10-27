@@ -1,33 +1,11 @@
-const productos = [
-    {
-        item: "Cointreau",
-        nombre: "licor Cointreau",
-        imagen: "../img/cuantro.png",
-        precio: 21000,
-        cantidad: 1
-    },
-    {
-        item: "Absolut",
-        nombre: "vodka Absolut",
-        imagen: "../img/absolut.png",
-        precio: 5000,
-        cantidad: 1
-    },
-    {
-        item: "Bombay",
-        nombre: "Gin Bombay",
-        imagen: "../img/bombay.png",
-        precio: 7500,
-        cantidad: 1
-    },
-    {
-        item: "Heineken",
-        nombre: "Cerveza Heineken",
-        imagen: "../img/heineken.png",
-        precio: 2500,
-        cantidad: 1
-    }
-];
+let productos = [];
+
+fetch("./js/productos.json")
+    .then (Response => Response.json())
+    .then (datos => {
+        productos = datos;
+        cargarProductos(productos);
+    })
 
 let productosCarrito = [];
 

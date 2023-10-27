@@ -7,6 +7,7 @@ const carritoDeProductos = document.querySelector('#productosCarritoId');
 const carritoAccion = document.querySelector('#carritoAccionesId');
 let botonesEliminar = document.querySelectorAll('#btnEliminarProductoId');
 const botonVaciar = document.querySelector("#vaciarCarritoId");
+const botonTerminarCompra = document.querySelector("#terminarCompraId");
 const contenedorTotal = document.querySelector("#total");
 
 function cargarProductosCarrito(){
@@ -79,12 +80,36 @@ function eliminarDelCarrito (e){
 botonVaciar.addEventListener("click", vaciarCarrito);
 function vaciarCarrito() {
 
-    productosCarrito.length = 0;
-    localStorage.setItem("productosDelCarrito", JSON.stringify(productosCarrito));
-    cargarProductosCarrito();
+    Swal.fire({
+        title: '¡Espera!',
+        text: "¿Seguro que quieres borrar los productos?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Vaciar carrito'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            productosCarrito.length = 0;
+            localStorage.setItem("productosDelCarrito", JSON.stringify(productosCarrito));
+            cargarProductosCarrito();
+        Swal.fire(
+            '¡Hecho!',
+            'Los productos fueron eliminados.',
+            'success'
+        )
+        }
+})
 }
 
 function actualizarTotal() {
     const totalCalculado = productosCarrito.reduce((acc, producto) => acc + (producto.precio * producto.cantidad), 0);
     total.innerText = `$${totalCalculado}`;
+}
+
+botonTerminarCompra.addEventListener("click", terminarCompra);
+function terminarCompra (){
+
+    Swal.fire('¡Gracias por comprar!, su total es ')
+
 }
