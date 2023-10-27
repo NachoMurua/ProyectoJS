@@ -74,6 +74,7 @@ function eliminarDelCarrito (e){
     cargarProductosCarrito();
 
     localStorage.setItem("productosDelCarrito", JSON.stringify(productosCarrito));
+    actualizarNumerito();
 }
 
 
@@ -99,6 +100,7 @@ function vaciarCarrito() {
             'success'
         )
         }
+        actualizarNumerito();
 })
 }
 
@@ -111,5 +113,13 @@ botonTerminarCompra.addEventListener("click", terminarCompra);
 function terminarCompra (){
 
     Swal.fire('¡Gracias por su compra!')
-
+    actualizarNumerito();
 }
+
+const numeroProducto = document.querySelector('.numeroProd');
+function actualizarNumerito (){
+    let nuevoNumerito = productosCarrito.reduce((acc, producto) => acc + producto.cantidad, 0);
+    numeroProducto.innerHTML = nuevoNumerito;
+}
+
+actualizarNumerito();

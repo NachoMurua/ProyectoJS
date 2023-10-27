@@ -7,6 +7,26 @@ fetch("./js/productos.json")
         cargarProductos(productos)
     })
 
+function obtenerProductos() {
+    return new Promise((resolve, reject) => {
+        fetch("./js/productos.json")
+            .then(Response => Response.json())
+            .then(datos => {
+                productos = datos;
+                resolve(productos);
+            })
+            .catch(error => reject(error));
+    });
+}
+    
+obtenerProductos()
+    .then(productos => {
+        cargarProductos(productos);
+    })
+    .catch(error => {
+        console.error("Error al cargar los productos:", error);
+    });
+
 let productosCarrito = [];
 
 const contenedorProductos = document.querySelector('#listaProductos');
